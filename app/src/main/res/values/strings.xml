@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
+
+    <!--Main-->
+    <string name = "enter_text">Введите текст</string>
+    <string name = "open_second_first">второй экран</string>
+    <string name = "open_third_first">третий экран</string>
+
+    <!--Second-->
+    <string name = "title_screen_2">ЭКРАН 2</string>
+    <string name = "open_third_second">третий экран</string>
+    <string name ="open_first_second">первый экран</string>
+
+    <!--Third-->
+    <string name = "title_screen_3">ЭКРАН 3</string>
+    <string name = "open_first_third">первый экран</string>
+
 </resources>
