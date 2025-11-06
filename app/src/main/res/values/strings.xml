@@ -1,18 +1,36 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
 
-    <!--Main-->
-    <string name = "enter_text">Введите текст</string>
-    <string name = "open_second_first">второй экран</string>
-    <string name = "open_third_first">третий экран</string>
+    <!-- Login Screen -->
+    <string name = "login_title">Вxод</string>
+    <string name = "email">Email</string>
+    <string name = "password">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="show_password">Показать пароль</string>
+    <string name="hide_password">Скрыть пароль</string>
 
-    <!--Second-->
-    <string name = "title_screen_2">ЭКРАН 2</string>
-    <string name = "open_third_second">третий экран</string>
-    <string name ="open_first_second">первый экран</string>
+    <!-- Error Messages -->
+    <string name = "invalid_email">Некорректный email</string>
+    <string name = "short_password">Пароль должен содержать минимум 8 символов</string>
+    <string name ="empty_fields">Заполните все поля</string>
+    <string name="empty_title">Заголовок не может быть пустым</string>
 
-    <!--Third-->
-    <string name = "title_screen_3">ЭКРАН 3</string>
-    <string name = "open_first_third">первый экран</string>
+    <!-- Notes Screen -->
+    <string name="welcome_message">Добро пожаловать, %s</string>
+    <string name="empty_notes">Список заметок пуст</string>
+    <string name="add_note_button">Добавить заметку</string>
+    <string name="color_scheme">Цветовая схема</string>
+
+    <!-- Add Note Screen -->
+    <string name="new_note_title">Новая заметка</string>
+    <string name="note_title_hint">Заголовок</string>
+    <string name="note_content_hint">Содержание</string>
+    <string name="save_button">Сохранить</string>
+
+    <!-- Color Themes -->
+    <string name="select_theme">Выбрать тему</string>
+    <string name="theme_pink">Розовая</string>
+    <string name="theme_purple">Фиолетовая</string>
+    <string name="theme_blue">Голубая</string>
 
 </resources>
