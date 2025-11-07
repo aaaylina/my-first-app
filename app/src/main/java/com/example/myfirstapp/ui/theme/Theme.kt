@@ -5,28 +5,43 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.example.myfirstapp.model.AppTheme
 
+private val LightPinkColorScheme = lightColorScheme(
+    primary = PrimaryPink,
+    secondary = SecondaryPink,
+    tertiary = Pink80,
+    background = BackgroundPink,
+    surface = SurfacePink,
+    onPrimary = OnPrimaryPink,
+    onSecondary = OnSecondaryPink,
+    onBackground = OnBackgroundPink,
+    onSurface = OnSurfacePink,
+)
+
+private val DarkPinkColorScheme = darkColorScheme(
+    primary = Pink80,
+    secondary = Pink40,
+    tertiary = Pink40,
+    background = Color(0xFF1A1A1A),
+    surface = Color(0xFF2D2D2D),
+    onPrimary = Color.Black,
+    onSecondary = Color.White,
+    onBackground = Color.White,
+    onSurface = Color.White,
+)
+
 @Composable
-fun NotesAppTheme(
-    appTheme: AppTheme = AppTheme.BLUE,
+fun AppTheme(
+    appTheme: AppTheme = AppTheme.PINK,
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) {
-        darkColorScheme(
-            primary = appTheme.primaryColor,
-            secondary = appTheme.primaryColor.copy(alpha = 0.8f),
-            background = appTheme.backgroundColor,
-            surface = appTheme.surfaceColor,
-        )
-    } else {
-        lightColorScheme(
-            primary = appTheme.primaryColor,
-            secondary = appTheme.primaryColor.copy(alpha = 0.8f),
-            background = appTheme.backgroundColor,
-            surface = appTheme.surfaceColor,
-        )
+    val colorScheme = when (appTheme) {
+        AppTheme.PINK -> if (darkTheme) DarkPinkColorScheme else LightPinkColorScheme
+        AppTheme.PURPLE -> if (darkTheme) darkColorScheme() else lightColorScheme()
+        AppTheme.BLUE -> if (darkTheme) darkColorScheme() else lightColorScheme()
     }
 
     MaterialTheme(
@@ -34,4 +49,5 @@ fun NotesAppTheme(
         typography = Typography,
         content = content
     )
+
 }
