@@ -1,31 +1,58 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
 
-    <!-- Login Screen -->
-    <string name = "login_title">Вxод</string>
-    <string name = "email">Email</string>
-    <string name = "password">Пароль</string>
-    <string name="login_button">Войти</string>
-    <string name="show_password">Показать пароль</string>
-    <string name="hide_password">Скрыть пароль</string>
+    <!-- Notifications -->
+    <string name="notification_settings_title">Настройки уведомления</string>
+    <string name="notification_title">Заголовок уведомления</string>
+    <string name="notification_title_error">Заголовок не может быть пустым</string>
+    <string name="notification_message">Текст уведомления</string>
+    <string name="expandable_switch_label">Раскрывать длинные сообщения</string>
+    <string name="priority_label">Приоритет уведомления</string>
+    <string name="priority_min">Минимальный</string>
+    <string name="priority_low">Низкий</string>
+    <string name="priority_medium">Средний</string>
+    <string name="priority_high">Высокий</string>
+    <string name="open_app_switch">Открывать приложение при нажатии</string>
+    <string name="reply_action_switch">Добавить кнопку ответа</string>
+    <string name="send_notification">Отправить уведомление</string>
 
-    <!-- Error Messages -->
-    <string name = "invalid_email">Некорректный email</string>
-    <string name = "short_password">Пароль должен содержать минимум 8 символов</string>
-    <string name ="empty_fields">Заполните все поля</string>
-    <string name="empty_title">Заголовок не может быть пустым</string>
+    <string name="edit_notification">Редактирование уведомления</string>
+    <string name="notification_id">ID уведомления</string>
+    <string name="new_text">Новый текст уведомления</string>
+    <string name="update_notification">Обновить уведомление</string>
+    <string name="clear_all_notifications">Удалить все уведомления</string>
+    <string name="notification_updated">Уведомление обновлено</string>
+    <string name="notification_not_found">Уведомление с таким ID не найдено</string>
+    <string name="enter_valid_id">Введите корректный ID и текст</string>
+    <string name="all_notifications_cleared">Все уведомления удалены</string>
+    <string name="no_active_notifications">Нет активных уведомлений</string>
 
-    <!-- Notes Screen -->
-    <string name="welcome_message">Добро пожаловать, %s</string>
-    <string name="empty_notes">Список заметок пуст</string>
-    <string name="add_note_button">Добавить заметку</string>
-    <string name="color_scheme">Цветовая схема</string>
+    <string name="user_messages">Сообщения пользователя</string>
+    <string name="new_message">Новое сообщение</string>
+    <string name="add_message">Добавить</string>
+    <string name="clear_messages">Очистить все</string>
+    <string name="from_notification">Из уведомления</string>
+    <string name="from_user">Пользователь</string>
+    <string name="no_messages">Нет сообщений</string>
+    
+    <string name="id_notification">"ID последнего уведомления:"</string>
 
-    <!-- Add Note Screen -->
-    <string name="new_note_title">Новая заметка</string>
-    <string name="note_title_hint">Заголовок</string>
-    <string name="note_content_hint">Содержание</string>
-    <string name="save_button">Сохранить</string>
+    <!-- Bottom Navigation -->
+    <string name="notification_settings_tab">Настройки</string>
+    <string name="edit_notification_tab">Редактирование</string>
+    <string name="user_messages_tab">Сообщения</string>
+
+    <!-- Reply Action -->
+    <string name="reply_label">Ответить</string>
+    <string name="reply_hint">Введите ответ</string>
+    <string name="reply_saved">Ответ сохранен: %s</string>
+
+    <!-- Приоритеты каналов -->
+    <string name="high_priority_description">Важные уведомления</string>
+    <string name="medium_priority_description">Обычные уведомления</string>
+    <string name="low_priority_description">Мало важные уведомления</string>
+    <string name="min_priority_description">Фоновые уведомления</string>
+    <string name="updated_notification_title">Обновленное уведомление</string>
 
     <!-- Color Themes -->
     <string name="select_theme">Выбрать тему</string>
