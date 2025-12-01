@@ -41,6 +41,7 @@
     <string name="notification_settings_tab">Настройки</string>
     <string name="edit_notification_tab">Редактирование</string>
     <string name="user_messages_tab">Сообщения</string>
+    <string name="coroutines_tab">Корутины</string>
 
     <!-- Reply Action -->
     <string name="reply_label">Ответить</string>
@@ -59,5 +60,57 @@
     <string name="theme_pink">Розовая</string>
     <string name="theme_purple">Фиолетовая</string>
     <string name="theme_blue">Голубая</string>
+
+    <!-- Корутины -->
+
+    <!-- Exceptions-->
+    <string name="exception_toast">"Toast: Операция заняла %d секунд"</string>
+    <string name="exception_snackbar">Snackbar: Операция заняла %d секунд</string>
+    <string name="exception_reset">Reset: Операция заняла %d секунд - Сброс настроек</string>
+    <string name="exception_error">Error: %s</string>
+    <string name="exception_unknown_error">Unknown error</string>
+
+    <!-- Dispatchers -->
+    <string name="dispatcher_default">Default</string>
+    <string name="dispatcher_io">IO</string>
+    <string name="dispatcher_main">Main</string>
+
+    <!-- Coroutines Screen -->
+    <string name="coroutines_manager_title">Coroutines Manager</string>
+    <string name="coroutines_count">Coroutines count: %d</string>
+    <string name="dispatcher_label">Dispatcher</string>
+    <string name="sequential_switch">Sequential</string>
+    <string name="parallel_switch">Parallel</string>
+    <string name="lazy_launch_switch">Lazy launch</string>
+    <string name="background_work_switch">Background work</string>
+    <string name="launch_coroutines">Launch Coroutines</string>
+    <string name="cancel_coroutines">Cancel Coroutines</string>
+    <string name="cancelled_coroutines">Cancelled coroutines: %d</string>
+
+    <!-- Coroutines Messages -->
+    <string name="coroutines_completed">Completed %d coroutines</string>
+    <string name="coroutines_cancelled">Cancelled %d coroutines</string>
+    <string name="coroutines_paused_background">Coroutines paused due to background</string>
+    <string name="coroutines_restarting">Restarting %d coroutines</string>
+
+    <!-- Debug Info -->
+    <string name="debug_current_settings">Current Settings:</string>
+    <string name="debug_coroutines_count">• Coroutines: %d</string>
+    <string name="debug_dispatcher">• Dispatcher: %s</string>
+    <string name="debug_mode">• Mode: %s</string>
+    <string name="debug_launch">• Launch: %s</string>
+    <string name="debug_background">• Background: %s</string>
+
+    <!-- Mode Strings -->
+    <string name="mode_sequential">Sequential</string>
+    <string name="mode_parallel">Parallel</string>
+    <string name="launch_immediate">Immediate</string>
+    <string name="launch_lazy">Lazy</string>
+    <string name="background_enabled">Enabled</string>
+    <string name="background_disabled">Disabled</string>
+
+    <string name="user_cancellation">User cancellation</string>
+    <string name="separator"> | </string>
+
 
 </resources>

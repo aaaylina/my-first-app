@@ -29,6 +29,11 @@ fun BottomNavigationBar(navController: NavController) {
             route = NavigationRoutes.USER_MESSAGES,
             iconRes = R.drawable.ic_message,
             labelRes = R.string.user_messages_tab
+        ),
+        BottomNavItem(
+            route = NavigationRoutes.COROUTINES_MANAGER,
+            iconRes = R.drawable.ic_back_hand_24,
+            labelRes = R.string.coroutines_tab
         )
     )
 

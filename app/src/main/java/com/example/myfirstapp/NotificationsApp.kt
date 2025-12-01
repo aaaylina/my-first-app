@@ -14,15 +14,18 @@ import com.example.myfirstapp.utils.NotificationHandler
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.layout.padding
+import com.example.myfirstapp.navScreens.coroutines.CoroutinesManagerScreen
 import com.example.myfirstapp.ui.theme.AppTheme
+import kotlinx.coroutines.currentCoroutineContext
 
 @Composable
 fun NotificationsApp() {
     val navController = rememberNavController()
     val context = LocalContext.current
-    val notificationHelper = remember { NotificationHandler(context) }
+    val notificationHelper = remember { NotificationHandler(context.applicationContext) }
 
     var appState by remember { mutableStateOf(AppState()) }
+
 
     AppTheme(appTheme = appState.selectedTheme) {
         Scaffold(
@@ -49,6 +52,10 @@ fun NotificationsApp() {
 
                 composable(NavigationRoutes.USER_MESSAGES) {
                     UserMessagesScreen()
+                }
+
+                composable(NavigationRoutes.COROUTINES_MANAGER) {
+                    CoroutinesManagerScreen()
                 }
             }
         }
