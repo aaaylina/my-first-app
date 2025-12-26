@@ -1,9 +1,12 @@
 package com.example.myfirstapp.navigation
 
 object NavigationRoutes {
-    const val NOTIFICATION_SETTINGS = "notification_settings"
-    const val EDIT_NOTIFICATION = "edit_notification"
-    const val USER_MESSAGES = "user_messages"
 
-    const val COROUTINES_MANAGER = "coroutines_manager"
+    const val LOGIN = "login"
+    const val REGISTER = "register"
+    const val RECOVER_ACCOUNT = "recover_account"
+
+    const val WORKOUTS_LIST = "workouts_list"
+    const val ADD_WORKOUT = "add_workout"
+    const val PROFILE = "profile"
 }

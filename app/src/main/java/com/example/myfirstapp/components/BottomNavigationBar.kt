@@ -1,11 +1,14 @@
-package com.example.myfirstapp.ui.components
+package com.example.myfirstapp.components
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FitnessCenter
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -16,24 +19,19 @@ import com.example.myfirstapp.navigation.NavigationRoutes
 fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         BottomNavItem(
-            route = NavigationRoutes.NOTIFICATION_SETTINGS,
-            iconRes = R.drawable.ic_settings,
-            labelRes = R.string.notification_settings_tab
+            route = NavigationRoutes.WORKOUTS_LIST,
+            icon = Icons.Filled.Home,
+            labelRes = R.string.workouts_tab
         ),
         BottomNavItem(
-            route = NavigationRoutes.EDIT_NOTIFICATION,
-            iconRes = R.drawable.ic_edit,
-            labelRes = R.string.edit_notification_tab
+            route = NavigationRoutes.PROFILE,
+            icon = Icons.Filled.Person,
+            labelRes = R.string.profile_tab
         ),
         BottomNavItem(
-            route = NavigationRoutes.USER_MESSAGES,
-            iconRes = R.drawable.ic_message,
-            labelRes = R.string.user_messages_tab
-        ),
-        BottomNavItem(
-            route = NavigationRoutes.COROUTINES_MANAGER,
-            iconRes = R.drawable.ic_back_hand_24,
-            labelRes = R.string.coroutines_tab
+            route = NavigationRoutes.ADD_WORKOUT,
+            icon = Icons.Filled.FitnessCenter,
+            labelRes = R.string.add_workout_tab
         )
     )
 
@@ -44,7 +42,7 @@ fun BottomNavigationBar(navController: NavController) {
             NavigationBarItem(
                 icon = {
                     Icon(
-                        painter = painterResource(id = item.iconRes),
+                        imageVector = item.icon,
                         contentDescription = stringResource(item.labelRes)
                     )
                 },
@@ -66,6 +64,6 @@ fun BottomNavigationBar(navController: NavController) {
 
 data class BottomNavItem(
     val route: String,
-    val iconRes: Int,
+    val icon: androidx.compose.ui.graphics.vector.ImageVector,
     val labelRes: Int
 )
