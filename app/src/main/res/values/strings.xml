@@ -1,190 +1,33 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
+    <string name="weather_app">"Weather App"</string>
 
-    <!-- Notifications -->
-    <string name="notification_settings_title">Настройки уведомления</string>
-    <string name="notification_title">Заголовок уведомления</string>
-    <string name="notification_title_error">Заголовок не может быть пустым</string>
-    <string name="notification_message">Текст уведомления</string>
-    <string name="expandable_switch_label">Раскрывать длинные сообщения</string>
-    <string name="priority_label">Приоритет уведомления</string>
-    <string name="priority_min">Минимальный</string>
-    <string name="priority_low">Низкий</string>
-    <string name="priority_medium">Средний</string>
-    <string name="priority_high">Высокий</string>
-    <string name="open_app_switch">Открывать приложение при нажатии</string>
-    <string name="reply_action_switch">Добавить кнопку ответа</string>
-    <string name="send_notification">Отправить уведомление</string>
+    <string name="cache_snackbar">📦 Данные из кэша</string>
+    <string name="detail_weather">Детали погоды</string>
+    <string name="feels_like">🌡️ Ощущается как</string>
+    <string name="humidity">💧 Humidity</string>
+    <string name="pressure">📊 Давление</string>
+    <string name="wind_speed">💨 Скорость ветра</string>
+    <string name="sunrise">🌅 Восход</string>
+    <string name="sunset">🌇 Закат</string>
+    <string name="updated">🕐 Обновлено</string>
+    <string name="local_cache">📦 Данные из локального кэша</string>
+    <string name="error_basic">⚠️ Ошибка</string>
+    <string name="to_repeat">Повторить</string>
+    <string name="details_cache_snackbar">📦 Данные из кэша</string>
+    <string name="enter_city_name">Введите название город</string>
+    <string name="find_out_weather">Узнать погоду</string>
+    <string name="last_search">📌 Последний поиск</string>
+    <string name="enter_city_and_tap_search">🔍 Введите город и нажмите поиск</string>
+    <string name="from_cache">📦 из кэша</string>
 
-    <string name="edit_notification">Редактирование уведомления</string>
-    <string name="notification_id">ID уведомления</string>
-    <string name="new_text">Новый текст уведомления</string>
-    <string name="update_notification">Обновить уведомление</string>
-    <string name="clear_all_notifications">Удалить все уведомления</string>
-    <string name="notification_updated">Уведомление обновлено</string>
-    <string name="notification_not_found">Уведомление с таким ID не найдено</string>
-    <string name="enter_valid_id">Введите корректный ID и текст</string>
-    <string name="all_notifications_cleared">Все уведомления удалены</string>
-    <string name="no_active_notifications">Нет активных уведомлений</string>
+    <string name="error_restore_data">Ошибка восстановления данных</string>
+    <string name="error_city_not_passed">Название города не передано</string>
+    <string name="error_empty_city">Введите название города</string>
+    <string name="error_network">Нет соединения с интернетом</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
 
-    <string name="user_messages">Сообщения пользователя</string>
-    <string name="new_message">Новое сообщение</string>
-    <string name="add_message">Добавить</string>
-    <string name="clear_messages">Очистить все</string>
-    <string name="from_notification">Из уведомления</string>
-    <string name="from_user">Пользователь</string>
-    <string name="no_messages">Нет сообщений</string>
-    
-    <string name="id_notification">"ID последнего уведомления:"</string>
 
-    <!-- Bottom Navigation -->
-    <string name="notification_settings_tab">Настройки</string>
-    <string name="edit_notification_tab">Редактирование</string>
-    <string name="user_messages_tab">Сообщения</string>
-    <string name="coroutines_tab">Корутины</string>
 
-    <!-- Reply Action -->
-    <string name="reply_label">Ответить</string>
-    <string name="reply_hint">Введите ответ</string>
-    <string name="reply_saved">Ответ сохранен: %s</string>
-
-    <!-- Приоритеты каналов -->
-    <string name="high_priority_description">Важные уведомления</string>
-    <string name="medium_priority_description">Обычные уведомления</string>
-    <string name="low_priority_description">Мало важные уведомления</string>
-    <string name="min_priority_description">Фоновые уведомления</string>
-    <string name="updated_notification_title">Обновленное уведомление</string>
-
-    <!-- Color Themes -->
-    <string name="select_theme">Выбрать тему</string>
-    <string name="theme_pink">Розовая</string>
-    <string name="theme_purple">Фиолетовая</string>
-    <string name="theme_blue">Голубая</string>
-
-    <!-- Корутины -->
-
-    <!-- Exceptions-->
-    <string name="exception_toast">"Toast: Операция заняла %d секунд"</string>
-    <string name="exception_snackbar">Snackbar: Операция заняла %d секунд</string>
-    <string name="exception_reset">Reset: Операция заняла %d секунд - Сброс настроек</string>
-    <string name="exception_error">Error: %s</string>
-    <string name="exception_unknown_error">Unknown error</string>
-
-    <!-- Dispatchers -->
-    <string name="dispatcher_default">Default</string>
-    <string name="dispatcher_io">IO</string>
-    <string name="dispatcher_main">Main</string>
-
-    <!-- Coroutines Screen -->
-    <string name="coroutines_manager_title">Coroutines Manager</string>
-    <string name="coroutines_count">Coroutines count: %d</string>
-    <string name="dispatcher_label">Dispatcher</string>
-    <string name="sequential_switch">Sequential</string>
-    <string name="parallel_switch">Parallel</string>
-    <string name="lazy_launch_switch">Lazy launch</string>
-    <string name="background_work_switch">Background work</string>
-    <string name="launch_coroutines">Launch Coroutines</string>
-    <string name="cancel_coroutines">Cancel Coroutines</string>
-    <string name="cancelled_coroutines">Cancelled coroutines: %d</string>
-
-    <!-- Coroutines Messages -->
-    <string name="coroutines_completed">Completed %d coroutines</string>
-    <string name="coroutines_cancelled">Cancelled %d coroutines</string>
-    <string name="coroutines_paused_background">Coroutines paused due to background</string>
-    <string name="coroutines_restarting">Restarting %d coroutines</string>
-
-    <!-- Debug Info -->
-    <string name="debug_current_settings">Current Settings:</string>
-    <string name="debug_coroutines_count">• Coroutines: %d</string>
-    <string name="debug_dispatcher">• Dispatcher: %s</string>
-    <string name="debug_mode">• Mode: %s</string>
-    <string name="debug_launch">• Launch: %s</string>
-    <string name="debug_background">• Background: %s</string>
-
-    <!-- Mode Strings -->
-    <string name="mode_sequential">Sequential</string>
-    <string name="mode_parallel">Parallel</string>
-    <string name="launch_immediate">Immediate</string>
-    <string name="launch_lazy">Lazy</string>
-    <string name="background_enabled">Enabled</string>
-    <string name="background_disabled">Disabled</string>
-
-    <string name="user_cancellation">User cancellation</string>
-    <string name="separator"> | </string>
-
-    <string name="workouts_tab">Workouts</string>
-    <string name="profile_tab">Profile</string>
-    <string name="add_workout_tab">Add</string>
-
-    <string name="exist_error">User with this email already exists</string>
-    <string name="not_found">User not found</string>
-    <string name="invalid_password">Invalid password</string>
-    <string name="perm_deleted">Account permanently deleted</string>
-    <string name="fitness_center">Fitness Center</string>
-    <string name="track_your_progress">Track Your Progress</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="all_fields">Please fill all fields</string>
-    <string name="login">Login</string>
-    <string name="register">Dont have an account?Register</string>
-    <string name="account_deleted">Account Deleted</string>
-    <string name="seven_days">You have 7 days to restore your account</string>
-    <string name="what_do">What would you like to do?</string>
-    <string name="restore_account">Restore Account</string>
-    <string name="delete_perm">Delete Permanently</string>
-    <string name="go_back">Go Back</string>
-    <string name="create_account">Create Account</string>
-    <string name="username">Username</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="six_char">Password must be at least 6 characters</string>
-    <string name="not_match">Passwords do not match</string>
-    <string name="fill_all">Please fill all fields</string>
-    <string name="have_account">Already have an account?</string>
-    <string name="add_new_workout">Add New Workout</string>
-    <string name="back">Back</string>
-    <string name="workout_title">Workout Title</string>
-    <string name="description">Description</string>
-    <string name="category">Category</string>
-    <string name="duration">Duration (min)</string>
-    <string name="calor">Calories</string>
-    <string name="difficulty">Difficulty</string>
-    <string name="equipment">Equipment (comma separated)</string>
-    <string name="equipment_exmp">e.g., Dumbbells, Bench, Yoga Mat</string>
-    <string name="add_workout">Add Workout</string>
-    <string name="cancel">Cancel</string>
-    <string name="loading_profile">Loading profile...</string>
-    <string name="level">Level</string>
-    <string name="logout">Logout</string>
-    <string name="delete_account">Delete Account</string>
-    <string name="confirm_delete">Are you sure you want to delete your account?</string>
-    <string name="restore_seven">You can restore it within 7 days.</string>
-    <string name="delete">Delete</string>
-    <string name="fitness_level">Fitness Level</string>
-    <string name="bio">Bio</string>
-    <string name="weight">Weight</string>
-    <string name="height">Height</string>
-    <string name="age">Age</string>
-    <string name="my_workouts">My Workouts</string>
-    <string name="sort_button">SortButton</string>
-    <string name="sort">Sort</string>
-    <string name="profile_button">ProfileButton</string>
-    <string name="close">Close</string>
-    <string name="date">Date (Newest First)</string>
-    <string name="title">Title (A-Z)</string>
-    <string name="duration_sort">Duration (Shortest First)</string>
-    <string name="difficulty_sort">Difficulty (Easy to Hard)</string>
-    <string name="rating">Rating (Highest First)</string>
-    <string name="registration_failed">Registration failed</string>
-    <string name="login_failed">Login failed</string>
-    <string name="failed_to_load">Failed to load profile</string>
-    <string name="failed_to_update">Failed to update profile</string>
-    <string name="failed_to_load_w">Failed to load workouts</string>
-    <string name="failed_to_add">Failed to add workout</string>
-    <string name="loading_workouts">Loading workouts...</string>
-    <string name="retry">Retry</string>
-    <string name="no_workouts_yet">No workouts yet</string>
-    <string name="tap_plus">Tap + to add your first workout"</string>
-    <string name="rting">Rating</string>
-    <string name="sort_by">Sort by</string>
 
 </resources>
