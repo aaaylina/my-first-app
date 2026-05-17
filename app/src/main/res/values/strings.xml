@@ -1,63 +1,33 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
+    <string name="weather_app">"Weather App"</string>
 
-    <!-- Notifications -->
-    <string name="notification_settings_title">Настройки уведомления</string>
-    <string name="notification_title">Заголовок уведомления</string>
-    <string name="notification_title_error">Заголовок не может быть пустым</string>
-    <string name="notification_message">Текст уведомления</string>
-    <string name="expandable_switch_label">Раскрывать длинные сообщения</string>
-    <string name="priority_label">Приоритет уведомления</string>
-    <string name="priority_min">Минимальный</string>
-    <string name="priority_low">Низкий</string>
-    <string name="priority_medium">Средний</string>
-    <string name="priority_high">Высокий</string>
-    <string name="open_app_switch">Открывать приложение при нажатии</string>
-    <string name="reply_action_switch">Добавить кнопку ответа</string>
-    <string name="send_notification">Отправить уведомление</string>
+    <string name="cache_snackbar">📦 Данные из кэша</string>
+    <string name="detail_weather">Детали погоды</string>
+    <string name="feels_like">🌡️ Ощущается как</string>
+    <string name="humidity">💧 Humidity</string>
+    <string name="pressure">📊 Давление</string>
+    <string name="wind_speed">💨 Скорость ветра</string>
+    <string name="sunrise">🌅 Восход</string>
+    <string name="sunset">🌇 Закат</string>
+    <string name="updated">🕐 Обновлено</string>
+    <string name="local_cache">📦 Данные из локального кэша</string>
+    <string name="error_basic">⚠️ Ошибка</string>
+    <string name="to_repeat">Повторить</string>
+    <string name="details_cache_snackbar">📦 Данные из кэша</string>
+    <string name="enter_city_name">Введите название город</string>
+    <string name="find_out_weather">Узнать погоду</string>
+    <string name="last_search">📌 Последний поиск</string>
+    <string name="enter_city_and_tap_search">🔍 Введите город и нажмите поиск</string>
+    <string name="from_cache">📦 из кэша</string>
 
-    <string name="edit_notification">Редактирование уведомления</string>
-    <string name="notification_id">ID уведомления</string>
-    <string name="new_text">Новый текст уведомления</string>
-    <string name="update_notification">Обновить уведомление</string>
-    <string name="clear_all_notifications">Удалить все уведомления</string>
-    <string name="notification_updated">Уведомление обновлено</string>
-    <string name="notification_not_found">Уведомление с таким ID не найдено</string>
-    <string name="enter_valid_id">Введите корректный ID и текст</string>
-    <string name="all_notifications_cleared">Все уведомления удалены</string>
-    <string name="no_active_notifications">Нет активных уведомлений</string>
+    <string name="error_restore_data">Ошибка восстановления данных</string>
+    <string name="error_city_not_passed">Название города не передано</string>
+    <string name="error_empty_city">Введите название города</string>
+    <string name="error_network">Нет соединения с интернетом</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
 
-    <string name="user_messages">Сообщения пользователя</string>
-    <string name="new_message">Новое сообщение</string>
-    <string name="add_message">Добавить</string>
-    <string name="clear_messages">Очистить все</string>
-    <string name="from_notification">Из уведомления</string>
-    <string name="from_user">Пользователь</string>
-    <string name="no_messages">Нет сообщений</string>
-    
-    <string name="id_notification">"ID последнего уведомления:"</string>
 
-    <!-- Bottom Navigation -->
-    <string name="notification_settings_tab">Настройки</string>
-    <string name="edit_notification_tab">Редактирование</string>
-    <string name="user_messages_tab">Сообщения</string>
 
-    <!-- Reply Action -->
-    <string name="reply_label">Ответить</string>
-    <string name="reply_hint">Введите ответ</string>
-    <string name="reply_saved">Ответ сохранен: %s</string>
-
-    <!-- Приоритеты каналов -->
-    <string name="high_priority_description">Важные уведомления</string>
-    <string name="medium_priority_description">Обычные уведомления</string>
-    <string name="low_priority_description">Мало важные уведомления</string>
-    <string name="min_priority_description">Фоновые уведомления</string>
-    <string name="updated_notification_title">Обновленное уведомление</string>
-
-    <!-- Color Themes -->
-    <string name="select_theme">Выбрать тему</string>
-    <string name="theme_pink">Розовая</string>
-    <string name="theme_purple">Фиолетовая</string>
-    <string name="theme_blue">Голубая</string>
 
 </resources>
