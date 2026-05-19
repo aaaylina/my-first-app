@@ -27,7 +27,22 @@
     <string name="error_network">Нет соединения с интернетом</string>
     <string name="error_unknown">Неизвестная ошибка</string>
 
+    <string name="session_label">Сессия: %1$s…</string>
 
+    <string name="notification_channel_promo">Акции и предложения</string>
+    <string name="notification_channel_auth">Безопасность</string>
+    <string name="notification_channel_default">Общие уведомления</string>
+    <string name="push_default_title">Уведомление</string>
+    <string name="push_default_message">Новое сообщение</string>
 
+    <string name="about_title">О приложении</string>
+    <string name="about_intro">Weather App — учебное приложение для просмотра погоды в выбранном городе. Данные загружаются из OpenWeatherMap и кэшируются локально.</string>
+    <string name="about_features_title">Возможности</string>
+    <string name="about_features">• Поиск погоды по названию города\n• Кэширование результатов\n• Переход к детальной информации\n• Push-уведомления (promo, auth)\n• Отправка crash-отчётов в Firebase Crashlytics</string>
+    <string name="about_screens_title">Экраны приложения</string>
+    <string name="about_screens">• Главный — поиск и карточка погоды\n• Детали — температура, влажность, ветер, восход/закат\n• О приложении — описание (этот экран)</string>
+    <string name="about_agreement">Продолжая, вы подтверждаете ознакомление с функциями приложения. При первом запуске этот экран нельзя закрыть свайпом или нажатием вне области — только кнопкой ниже.</string>
+    <string name="about_confirm">Понятно, начать</string>
+    <string name="about_menu_content_description">О приложении</string>
 
 </resources>

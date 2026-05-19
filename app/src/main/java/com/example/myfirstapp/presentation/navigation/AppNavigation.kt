@@ -3,11 +3,15 @@ package com.example.myfirstapp.presentation.navigation
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
+import com.example.myfirstapp.analytics.AnalyticsTracker
+import com.example.myfirstapp.di.navigation.WeatherNavigationArgs
+import com.example.myfirstapp.presentation.screens.AboutScreen
 import com.example.myfirstapp.presentation.screens.WeatherDetailsScreen
 import com.example.myfirstapp.presentation.screens.WeatherListScreen
 import kotlinx.serialization.Serializable
@@ -16,11 +20,27 @@ import kotlinx.serialization.Serializable
 object WeatherListRoute : NavKey
 
 @Serializable
-data class WeatherDetailsRoute(val cityName: String) : NavKey
+object WeatherDetailsRoute : NavKey
+
+@Serializable
+object AboutRoute : NavKey
 
 @Composable
-fun AppNavigation() {
+fun AppNavigation(
+    analyticsTracker: AnalyticsTracker,
+    navigationArgs: WeatherNavigationArgs,
+) {
     val backStack = remember { mutableStateListOf<NavKey>(WeatherListRoute) }
+
+    LaunchedEffect(backStack.lastOrNull()) {
+        val screenName = when (backStack.lastOrNull()) {
+            is WeatherListRoute -> SCREEN_WEATHER_LIST
+            is WeatherDetailsRoute -> SCREEN_WEATHER_DETAILS
+            is AboutRoute -> SCREEN_ABOUT
+            else -> return@LaunchedEffect
+        }
+        analyticsTracker.logScreenView(screenName)
+    }
 
     NavDisplay(
         backStack = backStack,
@@ -53,15 +73,27 @@ fun AppNavigation() {
             entry<WeatherListRoute> {
                 WeatherListScreen(
                     onCityClick = { cityName ->
-                        backStack.add(WeatherDetailsRoute(cityName))
-                    }
+                        navigationArgs.setSelectedCity(cityName)
+                        backStack.add(WeatherDetailsRoute)
+                    },
+                    onAboutClick = { backStack.add(AboutRoute) },
                 )
             }
 
-            entry<WeatherDetailsRoute> { route ->
-                WeatherDetailsScreen(
-                    cityName = route.cityName,
+            entry<AboutRoute> {
+                AboutScreen(
                     onBack = {
+                        if (backStack.size > 1) {
+                            backStack.removeLastOrNull()
+                        }
+                    },
+                )
+            }
+
+            entry<WeatherDetailsRoute> {
+                WeatherDetailsScreen(
+                    onBack = {
+                        navigationArgs.clear()
                         if (backStack.size > 1) {
                             backStack.removeLastOrNull()
                         }
@@ -71,3 +103,7 @@ fun AppNavigation() {
         }
     )
 }
+
+const val SCREEN_WEATHER_LIST = "weather_list"
+const val SCREEN_WEATHER_DETAILS = "weather_details"
+const val SCREEN_ABOUT = "about"

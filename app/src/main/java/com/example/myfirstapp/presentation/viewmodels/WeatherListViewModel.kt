@@ -3,6 +3,7 @@ package com.example.myfirstapp.presentation.viewmodels
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myfirstapp.di.session.AppSessionInfo
 import com.example.myfirstapp.domain.models.Weather
 import com.example.myfirstapp.domain.usecases.GetWeatherUseCase
 import com.example.myfirstapp.utils.ErrorType
@@ -25,15 +26,18 @@ sealed class WeatherListState {
 @HiltViewModel
 class WeatherListViewModel @Inject constructor(
     private val getWeatherUseCase: GetWeatherUseCase,
+    appSessionInfo: AppSessionInfo,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     private val gson = Gson()
 
+    val sessionId: String = appSessionInfo.sessionId
+
     private val _state = MutableStateFlow<WeatherListState>(WeatherListState.Idle)
     val state: StateFlow<WeatherListState> = _state.asStateFlow()
 
-    private val _lastCity = MutableStateFlow<String?>(savedStateHandle["lastCity"])
+    private val _lastCity = MutableStateFlow<String?>(savedStateHandle[KEY_LAST_CITY])
     val lastCity: StateFlow<String?> = _lastCity.asStateFlow()
 
     init{
@@ -41,8 +45,8 @@ class WeatherListViewModel @Inject constructor(
     }
 
     private fun restoreFullState() {
-        val lastCityValue: String? = savedStateHandle["lastCity"]
-        val cachedWeatherJson: String? = savedStateHandle["cachedWeather"]
+        val lastCityValue: String? = savedStateHandle[KEY_LAST_CITY]
+        val cachedWeatherJson: String? = savedStateHandle[KEY_CACHED_WEATHER]
 
         if (cachedWeatherJson != null && lastCityValue != null) {
             try {
@@ -73,12 +77,7 @@ class WeatherListViewModel @Inject constructor(
                     saveStateToHandle(city, result.data)
                 }
                 is NetworkResult.Error -> {
-                    val errorType = when {
-                        result.message.contains("401") -> ErrorType.NETWORK_ERROR
-                        result.message.contains("404") -> ErrorType.UNKNOWN
-                        result.message.contains("демонстрация") -> ErrorType.UNKNOWN
-                        else -> ErrorType.UNKNOWN
-                    }
+                    val errorType = getErrorTypeFromMessage(result.message)
                     _state.value = WeatherListState.Error(errorType)
                 }
                 else -> {}
@@ -86,13 +85,22 @@ class WeatherListViewModel @Inject constructor(
         }
     }
 
+    private fun getErrorTypeFromMessage(message: String): ErrorType {
+        return when {
+            message.contains(ERROR_CODE_401) -> ErrorType.NETWORK_ERROR
+            message.contains(ERROR_CODE_404) -> ErrorType.UNKNOWN
+            message.contains(ERROR_DEMO_MESSAGE) -> ErrorType.UNKNOWN
+            else -> ErrorType.UNKNOWN
+        }
+    }
+
     private fun saveStateToHandle(city: String, weather: Weather) {
-        savedStateHandle["lastCity"] = city
+        savedStateHandle[KEY_LAST_CITY] = city
 
         val weatherJson = gson.toJson(weather)
-        savedStateHandle["cachedWeather"] = weatherJson
+        savedStateHandle[KEY_CACHED_WEATHER] = weatherJson
 
-        savedStateHandle["lastUpdateTime"] = System.currentTimeMillis()
+        savedStateHandle[KEY_LAST_UPDATE_TIME] = System.currentTimeMillis()
     }
 
     fun clearError() {
@@ -103,5 +111,15 @@ class WeatherListViewModel @Inject constructor(
 
     fun getIconUrl(iconCode: String): String {
         return "https://openweathermap.org/img/wn/${iconCode}@2x.png"
+    }
+
+    companion object {
+        private const val KEY_LAST_CITY = "lastCity"
+        private const val KEY_CACHED_WEATHER = "cachedWeather"
+        private const val KEY_LAST_UPDATE_TIME = "lastUpdateTime"
+
+        private const val ERROR_CODE_401 = "401"
+        private const val ERROR_CODE_404 = "404"
+        private const val ERROR_DEMO_MESSAGE = "демонстрация"
     }
 }

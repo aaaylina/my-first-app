@@ -25,7 +25,6 @@ import java.util.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WeatherDetailsScreen(
-    cityName: String,
     onBack: () -> Unit,
     viewModel: WeatherDetailsViewModel = hiltViewModel()
 ) {
@@ -35,8 +34,8 @@ fun WeatherDetailsScreen(
     val errorNetwork = stringResource(R.string.error_network)
     val errorUnknown = stringResource(R.string.error_unknown)
 
-    LaunchedEffect(cityName) {
-        viewModel.loadWeatherForCity(cityName)
+    LaunchedEffect(Unit) {
+        viewModel.loadWeatherFromNavigation()
     }
 
     val cacheMessage = stringResource(R.string.cache_snackbar)
