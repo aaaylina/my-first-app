@@ -7,26 +7,44 @@ import com.example.myfirstapp.data.cache.WeatherCacheDao
 import com.example.myfirstapp.data.cache.WeatherDatabase
 import com.example.myfirstapp.data.mapper.WeatherMapper
 import com.example.myfirstapp.data.repository.WeatherRepositoryImpl
+import com.example.myfirstapp.di.session.AppSessionInfo
 import com.example.myfirstapp.domain.repository.IWeatherRepository
 import com.example.myfirstapp.domain.usecases.GetWeatherUseCase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.UUID
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+
     @Provides
     @Singleton
-    fun provideWeatherApi(): WeatherApi {
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherApi(okHttpClient: OkHttpClient): WeatherApi {
         return Retrofit.Builder()
             .baseUrl("https://api.openweathermap.org/data/2.5/")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(WeatherApi::class.java)
@@ -65,5 +83,27 @@ object AppModule {
         repository: IWeatherRepository
     ): GetWeatherUseCase {
         return GetWeatherUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppSessionInfo(): AppSessionInfo {
+        val userId = UUID.randomUUID().toString()
+        return AppSessionInfo(
+            sessionId = UUID.randomUUID().toString(),
+            userId = userId,
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAnalytics(@ApplicationContext context: Context): FirebaseAnalytics {
+        return FirebaseAnalytics.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebaseCrashlytics(): FirebaseCrashlytics {
+        return FirebaseCrashlytics.getInstance()
     }
 }

@@ -1,9 +1,17 @@
 package com.example.myfirstapp.presentation.screens
 
-import androidx.compose.animation.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -23,7 +31,8 @@ import com.example.myfirstapp.utils.ErrorType
 @Composable
 fun WeatherListScreen(
     onCityClick: (String) -> Unit,
-    viewModel: WeatherListViewModel = hiltViewModel()
+    onAboutClick: () -> Unit,
+    viewModel: WeatherListViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val lastCity by viewModel.lastCity.collectAsStateWithLifecycle()
@@ -70,7 +79,27 @@ fun WeatherListScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.weather_app), fontWeight = androidx.compose.ui.text.font.FontWeight.Bold) },
+                title = {
+                    Column {
+                        Text(
+                            stringResource(R.string.weather_app),
+                            fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                        )
+                        Text(
+                            text = stringResource(R.string.session_label, viewModel.sessionId.take(8)),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = onAboutClick) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            contentDescription = stringResource(R.string.about_menu_content_description),
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )

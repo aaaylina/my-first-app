@@ -11,7 +11,6 @@ import com.example.myfirstapp.utils.NetworkResult
 import com.google.gson.Gson
 import javax.inject.Inject
 import javax.inject.Singleton
-import com.example.myfirstapp.data.repository.RepositoryConstants
 
 @Singleton
 class WeatherRepositoryImpl @Inject constructor(
@@ -39,7 +38,6 @@ class WeatherRepositoryImpl @Inject constructor(
                     return NetworkResult.Success(weather.copy(fromCache = true), fromCache = true)
                 }
             }
-
             val response = api.getCurrentWeather(city, apiKey)
             val weather = mapper.mapToDomain(response)
 
