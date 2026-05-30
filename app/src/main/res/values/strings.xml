@@ -45,4 +45,6 @@
     <string name="about_confirm">Понятно, начать</string>
     <string name="about_menu_content_description">О приложении</string>
 
+    <string name="chart_screen_title">Pie Chart</string>
+
 </resources>

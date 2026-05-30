@@ -12,6 +12,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.example.myfirstapp.analytics.AnalyticsTracker
 import com.example.myfirstapp.di.navigation.WeatherNavigationArgs
 import com.example.myfirstapp.presentation.screens.AboutScreen
+import com.example.myfirstapp.presentation.screens.ChartScreen
 import com.example.myfirstapp.presentation.screens.WeatherDetailsScreen
 import com.example.myfirstapp.presentation.screens.WeatherListScreen
 import kotlinx.serialization.Serializable
@@ -25,12 +26,15 @@ object WeatherDetailsRoute : NavKey
 @Serializable
 object AboutRoute : NavKey
 
+@Serializable
+object ChartRoute : NavKey
+
 @Composable
 fun AppNavigation(
     analyticsTracker: AnalyticsTracker,
     navigationArgs: WeatherNavigationArgs,
 ) {
-    val backStack = remember { mutableStateListOf<NavKey>(WeatherListRoute) }
+    val backStack = remember { mutableStateListOf<NavKey>(ChartRoute) }
 
     LaunchedEffect(backStack.lastOrNull()) {
         val screenName = when (backStack.lastOrNull()) {
@@ -94,6 +98,16 @@ fun AppNavigation(
                 WeatherDetailsScreen(
                     onBack = {
                         navigationArgs.clear()
+                        if (backStack.size > 1) {
+                            backStack.removeLastOrNull()
+                        }
+                    }
+                )
+            }
+
+            entry<ChartRoute> {
+                ChartScreen(
+                    onBack = {
                         if (backStack.size > 1) {
                             backStack.removeLastOrNull()
                         }
