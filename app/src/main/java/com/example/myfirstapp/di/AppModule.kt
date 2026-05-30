@@ -10,6 +10,7 @@ import com.example.myfirstapp.data.repository.WeatherRepositoryImpl
 import com.example.myfirstapp.di.session.AppSessionInfo
 import com.example.myfirstapp.domain.repository.IWeatherRepository
 import com.example.myfirstapp.domain.usecases.GetWeatherUseCase
+import com.example.myfirstapp.presentation.utils.WeatherFormatter
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.Module
@@ -105,5 +106,11 @@ object AppModule {
     @Singleton
     fun provideFirebaseCrashlytics(): FirebaseCrashlytics {
         return FirebaseCrashlytics.getInstance()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherFormatter(): WeatherFormatter {
+        return WeatherFormatter()
     }
 }

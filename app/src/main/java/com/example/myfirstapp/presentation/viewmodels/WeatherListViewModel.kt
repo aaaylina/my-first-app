@@ -1,5 +1,6 @@
 package com.example.myfirstapp.presentation.viewmodels
 
+import androidx.compose.runtime.Immutable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,7 +20,14 @@ import javax.inject.Inject
 sealed class WeatherListState {
     object Idle : WeatherListState()
     object Loading : WeatherListState()
-    data class Success(val weather: Weather, val fromCache: Boolean) : WeatherListState()
+
+    @Immutable
+    data class Success(
+        val weather: Weather,
+        val fromCache: Boolean
+    ) : WeatherListState()
+
+    @Immutable
     data class Error(val errorType: ErrorType) : WeatherListState()
 }
 
@@ -40,7 +48,7 @@ class WeatherListViewModel @Inject constructor(
     private val _lastCity = MutableStateFlow<String?>(savedStateHandle[KEY_LAST_CITY])
     val lastCity: StateFlow<String?> = _lastCity.asStateFlow()
 
-    init{
+    init {
         restoreFullState()
     }
 
@@ -96,10 +104,7 @@ class WeatherListViewModel @Inject constructor(
 
     private fun saveStateToHandle(city: String, weather: Weather) {
         savedStateHandle[KEY_LAST_CITY] = city
-
-        val weatherJson = gson.toJson(weather)
-        savedStateHandle[KEY_CACHED_WEATHER] = weatherJson
-
+        savedStateHandle[KEY_CACHED_WEATHER] = gson.toJson(weather)
         savedStateHandle[KEY_LAST_UPDATE_TIME] = System.currentTimeMillis()
     }
 
