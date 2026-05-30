@@ -1,5 +1,8 @@
 package com.example.myfirstapp.domain.models
 
+import androidx.compose.runtime.Immutable
+
+@Immutable
 data class Weather(
     val city: String,
     val country: String,
@@ -14,4 +17,7 @@ data class Weather(
     val sunset: Long,
     val timestamp: Long,
     val fromCache: Boolean = false
-)
+){
+    val celsius: Int get() = temperature.toInt()
+    val feelsLikeCelsius: Int get() = feelsLike.toInt()
+}

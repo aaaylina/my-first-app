@@ -21,6 +21,13 @@ googleServices = "4.4.2"
 firebaseCrashlyticsGradle = "3.0.2"
 datastore = "1.1.1"
 
+junit = "4.13.2"
+mockk = "1.13.8"
+coroutinesTest = "1.7.3"
+coreTesting = "2.2.0"
+truth = "1.1.5"
+
+
 [libraries]
 # Compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -75,6 +82,14 @@ firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging
 
 # DataStore
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+#Tests
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "coreTesting" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
